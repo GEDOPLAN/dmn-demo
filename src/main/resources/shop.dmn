@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="discountDRD" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.26.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
+  <decision id="discount" name="Calculate discount">
+    <decisionTable id="DecisionTable_0e0wr84">
+      <input id="Input_1" label="Number of orders" camunda:inputVariable="orders">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Discount" name="discount" typeRef="integer" />
+      <rule id="DecisionRule_0kzzkzq">
+        <description>Less than 3 orders</description>
+        <inputEntry id="UnaryTests_1nk2b69">
+          <text>&lt; 3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ev3y5k">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_030h74l">
+        <description>From 3 to 5 orders</description>
+        <inputEntry id="UnaryTests_04ukoyh">
+          <text>[3..5]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d2syl8">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vbn43k">
+        <description>From 6 to 10 orders</description>
+        <inputEntry id="UnaryTests_1db4o93">
+          <text>[6..10]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sdu81q">
+          <text>15</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hy7rbq">
+        <description>More than 10 orders</description>
+        <inputEntry id="UnaryTests_09s9zqs">
+          <text>&gt; 10</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jxbfmb">
+          <text>20</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="discount">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
